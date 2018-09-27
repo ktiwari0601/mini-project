@@ -1,0 +1,21 @@
+private static void viewBookingByDate() 
+	{
+		ArrayList<BookingDetails> bookList;
+		Date date = null;
+		try
+		{
+			hbs=new HotelBookingServiceImpl();
+			bookList = hbs.viewBookingByDate(date);
+			System.out.println("\tBOOKING_ID \tROOM_ID \tUSER_ID \t BOOKED_FROM \tBOOKED_TO \tNO_OF_ADULTS \tNO_OF_CHILDREN \tAMOUNT ");
+			for(BookingDetails hh:bookList)
+			{
+				System.out.println("\t"+hh.getBooking_id()+"\t\t"+hh.getRoom_id()+"\t"+hh.getUser_id()+"\t"+hh.getBooked_from()
+								+"\t"+hh.getBooked_to()+"\t"+hh.getNo_of_adults()+"\t"+hh.getNo_of_children()+"\t"+hh.getAmount());
+			}
+		}
+		catch (HotelBookingException e)
+		{
+			System.out.println(e);
+		}
+		
+	}
